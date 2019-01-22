@@ -1,0 +1,934 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E317945921C62B9400931605 /* SpaConvertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317945821C62B9400931605 /* SpaConvertTest.m */; };
+		E317946221CE203D00931605 /* SpaOtherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317946121CE203D00931605 /* SpaOtherTest.m */; };
+		FD2F947821B0E93D00EA7D16 /* SpaClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947721B0E93D00EA7D16 /* SpaClass.m */; };
+		FD2F947B21B148F000EA7D16 /* SpaUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947A21B148F000EA7D16 /* SpaUtil.m */; };
+		FD2F947F21B2A7EB00EA7D16 /* SpaConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947E21B2A7EB00EA7D16 /* SpaConverter.m */; };
+		FD2F948321B6620900EA7D16 /* SpaInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F948221B6620900EA7D16 /* SpaInstance.m */; };
+		FD2F949921BE0B1C00EA7D16 /* libffi_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949721BE0B1C00EA7D16 /* libffi_sim.a */; };
+		FD2F949A21BE0B1C00EA7D16 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949821BE0B1C00EA7D16 /* libffi.a */; };
+		FD2F949E21BE150500EA7D16 /* SpaBlockDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F949D21BE150500EA7D16 /* SpaBlockDescription.m */; };
+		FD2F94B421BE564700EA7D16 /* SpaBlockInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94B321BE564700EA7D16 /* SpaBlockInstance.m */; };
+		FD2F94B721BE9EA200EA7D16 /* SpaDynamicBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94B621BE9EA200EA7D16 /* SpaDynamicBlock.m */; };
+		FD2F94BD21C2493600EA7D16 /* SpaSimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94BB21C2493600EA7D16 /* SpaSimplePing.m */; };
+		FD2F94C021C24D4B00EA7D16 /* SpaTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94BF21C24D4B00EA7D16 /* SpaTrace.m */; };
+		FD66B31221AF8E760038B2C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD66B31121AF8E760038B2C7 /* AppDelegate.m */; };
+		FD66B31521AF8E760038B2C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD66B31421AF8E760038B2C7 /* ViewController.m */; };
+		FD66B31821AF8E760038B2C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66B31621AF8E760038B2C7 /* Main.storyboard */; };
+		FD66B31A21AF8E770038B2C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD66B31921AF8E770038B2C7 /* Assets.xcassets */; };
+		FD66B31D21AF8E770038B2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66B31B21AF8E770038B2C7 /* LaunchScreen.storyboard */; };
+		FD66B32021AF8E770038B2C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD66B31F21AF8E770038B2C7 /* main.m */; };
+		FD66B32F21AF8E950038B2C7 /* Spa.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD66B32C21AF8E950038B2C7 /* Spa.h */; };
+		FD66B33421AF8EAA0038B2C7 /* libSpa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD66B32A21AF8E950038B2C7 /* libSpa.a */; };
+		FD66B33621AF8F490038B2C7 /* patch.lua in Resources */ = {isa = PBXBuildFile; fileRef = FD66B33521AF8F490038B2C7 /* patch.lua */; };
+		FD66B37121AF99EB0038B2C7 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B33C21AF99EB0038B2C7 /* lauxlib.c */; };
+		FD66B37221AF99EB0038B2C7 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34221AF99EB0038B2C7 /* liolib.c */; };
+		FD66B37321AF99EB0038B2C7 /* lopcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34321AF99EB0038B2C7 /* lopcodes.c */; };
+		FD66B37421AF99EB0038B2C7 /* lstate.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34421AF99EB0038B2C7 /* lstate.c */; };
+		FD66B37521AF99EB0038B2C7 /* lobject.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34521AF99EB0038B2C7 /* lobject.c */; };
+		FD66B37621AF99EB0038B2C7 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34721AF99EB0038B2C7 /* print.c */; };
+		FD66B37721AF99EB0038B2C7 /* lmathlib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34821AF99EB0038B2C7 /* lmathlib.c */; };
+		FD66B37821AF99EB0038B2C7 /* loadlib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34921AF99EB0038B2C7 /* loadlib.c */; };
+		FD66B37921AF99EB0038B2C7 /* lvm.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34A21AF99EB0038B2C7 /* lvm.c */; };
+		FD66B37A21AF99EB0038B2C7 /* lfunc.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34B21AF99EB0038B2C7 /* lfunc.c */; };
+		FD66B37B21AF99EB0038B2C7 /* lstrlib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34C21AF99EB0038B2C7 /* lstrlib.c */; };
+		FD66B37C21AF99EB0038B2C7 /* linit.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34E21AF99EB0038B2C7 /* linit.c */; };
+		FD66B37D21AF99EB0038B2C7 /* lstring.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35121AF99EB0038B2C7 /* lstring.c */; };
+		FD66B37E21AF99EB0038B2C7 /* lundump.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35321AF99EB0038B2C7 /* lundump.c */; };
+		FD66B37F21AF99EB0038B2C7 /* ltable.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35621AF99EB0038B2C7 /* ltable.c */; };
+		FD66B38021AF99EB0038B2C7 /* ldump.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35821AF99EB0038B2C7 /* ldump.c */; };
+		FD66B38121AF99EB0038B2C7 /* loslib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35C21AF99EB0038B2C7 /* loslib.c */; };
+		FD66B38221AF99EB0038B2C7 /* lgc.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35D21AF99EB0038B2C7 /* lgc.c */; };
+		FD66B38321AF99EB0038B2C7 /* lzio.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35E21AF99EB0038B2C7 /* lzio.c */; };
+		FD66B38421AF99EB0038B2C7 /* ldblib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B35F21AF99EB0038B2C7 /* ldblib.c */; };
+		FD66B38521AF99EB0038B2C7 /* lmem.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36021AF99EB0038B2C7 /* lmem.c */; };
+		FD66B38621AF99EB0038B2C7 /* lcode.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36421AF99EB0038B2C7 /* lcode.c */; };
+		FD66B38721AF99EB0038B2C7 /* ltablib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36521AF99EB0038B2C7 /* ltablib.c */; };
+		FD66B38821AF99EB0038B2C7 /* lapi.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36621AF99EB0038B2C7 /* lapi.c */; };
+		FD66B38921AF99EB0038B2C7 /* lbaselib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36721AF99EB0038B2C7 /* lbaselib.c */; };
+		FD66B38A21AF99EB0038B2C7 /* ldebug.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36921AF99EB0038B2C7 /* ldebug.c */; };
+		FD66B38B21AF99EB0038B2C7 /* lparser.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36B21AF99EB0038B2C7 /* lparser.c */; };
+		FD66B38C21AF99EB0038B2C7 /* llex.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36C21AF99EB0038B2C7 /* llex.c */; };
+		FD66B38D21AF99EB0038B2C7 /* ltm.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36E21AF99EB0038B2C7 /* ltm.c */; };
+		FD66B38E21AF99EB0038B2C7 /* ldo.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B36F21AF99EB0038B2C7 /* ldo.c */; };
+		FD66B3A221AFAE200038B2C7 /* Spa.m in Sources */ = {isa = PBXBuildFile; fileRef = FD66B32D21AF8E950038B2C7 /* Spa.m */; };
+		FDB55A0421C35C330061B765 /* SpaDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A0321C35C330061B765 /* SpaDemoTests.m */; };
+		FDB55A0C21C3A4CF0061B765 /* SpaFunctionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A0B21C3A4CF0061B765 /* SpaFunctionTest.m */; };
+		FDB55A0D21C3A5140061B765 /* libSpa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD66B32A21AF8E950038B2C7 /* libSpa.a */; };
+		FDB55A6821C912260061B765 /* SpaCreateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A6721C912260061B765 /* SpaCreateTest.m */; };
+		FDB55A6A21C9123D0061B765 /* SpaBlockFunctionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A6921C9123D0061B765 /* SpaBlockFunctionTest.m */; };
+		FDB55A6C21C912510061B765 /* SpaInvokeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A6B21C912510061B765 /* SpaInvokeTest.m */; };
+		FDB55A6E21CB2F150061B765 /* SpaBlockCovertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A6D21CB2F150061B765 /* SpaBlockCovertTest.m */; };
+		FDB55A8321CB70540061B765 /* SpaBlockCreateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = FDB55A8221CB70540061B765 /* SpaBlockCreateTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FDB55A0621C35C330061B765 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD66B30521AF8E760038B2C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD66B30C21AF8E760038B2C7;
+			remoteInfo = SpaDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD66B32821AF8E950038B2C7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				FD66B32F21AF8E950038B2C7 /* Spa.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E317945821C62B9400931605 /* SpaConvertTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaConvertTest.m; sourceTree = "<group>"; };
+		E317946121CE203D00931605 /* SpaOtherTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaOtherTest.m; sourceTree = "<group>"; };
+		FD2F947621B0E93D00EA7D16 /* SpaClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaClass.h; sourceTree = "<group>"; };
+		FD2F947721B0E93D00EA7D16 /* SpaClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaClass.m; sourceTree = "<group>"; };
+		FD2F947921B148F000EA7D16 /* SpaUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaUtil.h; sourceTree = "<group>"; };
+		FD2F947A21B148F000EA7D16 /* SpaUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaUtil.m; sourceTree = "<group>"; };
+		FD2F947C21B2975600EA7D16 /* Spa+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Spa+Private.h"; sourceTree = "<group>"; };
+		FD2F947D21B2A7EA00EA7D16 /* SpaConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaConverter.h; sourceTree = "<group>"; };
+		FD2F947E21B2A7EB00EA7D16 /* SpaConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaConverter.m; sourceTree = "<group>"; };
+		FD2F948021B5195C00EA7D16 /* SpaDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaDefine.h; sourceTree = "<group>"; };
+		FD2F948121B6620900EA7D16 /* SpaInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaInstance.h; sourceTree = "<group>"; };
+		FD2F948221B6620900EA7D16 /* SpaInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaInstance.m; sourceTree = "<group>"; };
+		FD2F948921BE0AD000EA7D16 /* ffitarget_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_arm64.h; sourceTree = "<group>"; };
+		FD2F948A21BE0AD000EA7D16 /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		FD2F948B21BE0AD000EA7D16 /* ffi_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_i386.h; sourceTree = "<group>"; };
+		FD2F948C21BE0AD000EA7D16 /* ffitarget_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_x86_64.h; sourceTree = "<group>"; };
+		FD2F948D21BE0AD000EA7D16 /* ffitarget_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_armv7.h; sourceTree = "<group>"; };
+		FD2F948E21BE0AD000EA7D16 /* ffi_x86_64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_x86_64.h; sourceTree = "<group>"; };
+		FD2F948F21BE0AD000EA7D16 /* ffitarget_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget_i386.h; sourceTree = "<group>"; };
+		FD2F949021BE0AD000EA7D16 /* ffi_armv7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_armv7.h; sourceTree = "<group>"; };
+		FD2F949121BE0AD000EA7D16 /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		FD2F949221BE0AD000EA7D16 /* ffi_arm64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_arm64.h; sourceTree = "<group>"; };
+		FD2F949721BE0B1C00EA7D16 /* libffi_sim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffi_sim.a; path = Spa/libffi/libffi_sim.a; sourceTree = "<group>"; };
+		FD2F949821BE0B1C00EA7D16 /* libffi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libffi.a; path = Spa/libffi/libffi.a; sourceTree = "<group>"; };
+		FD2F949C21BE150500EA7D16 /* SpaBlockDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaBlockDescription.h; sourceTree = "<group>"; };
+		FD2F949D21BE150500EA7D16 /* SpaBlockDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaBlockDescription.m; sourceTree = "<group>"; };
+		FD2F94B221BE564700EA7D16 /* SpaBlockInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaBlockInstance.h; sourceTree = "<group>"; };
+		FD2F94B321BE564700EA7D16 /* SpaBlockInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaBlockInstance.m; sourceTree = "<group>"; };
+		FD2F94B521BE9EA200EA7D16 /* SpaDynamicBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaDynamicBlock.h; sourceTree = "<group>"; };
+		FD2F94B621BE9EA200EA7D16 /* SpaDynamicBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaDynamicBlock.m; sourceTree = "<group>"; };
+		FD2F94BB21C2493600EA7D16 /* SpaSimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaSimplePing.m; sourceTree = "<group>"; };
+		FD2F94BC21C2493600EA7D16 /* SpaSimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaSimplePing.h; sourceTree = "<group>"; };
+		FD2F94BE21C24D4B00EA7D16 /* SpaTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaTrace.h; sourceTree = "<group>"; };
+		FD2F94BF21C24D4B00EA7D16 /* SpaTrace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaTrace.m; sourceTree = "<group>"; };
+		FD66B30D21AF8E760038B2C7 /* SpaDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD66B31021AF8E760038B2C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FD66B31121AF8E760038B2C7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FD66B31321AF8E760038B2C7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FD66B31421AF8E760038B2C7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FD66B31721AF8E760038B2C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD66B31921AF8E770038B2C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD66B31C21AF8E770038B2C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD66B31E21AF8E770038B2C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD66B31F21AF8E770038B2C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD66B32A21AF8E950038B2C7 /* libSpa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSpa.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD66B32C21AF8E950038B2C7 /* Spa.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Spa.h; sourceTree = "<group>"; };
+		FD66B32D21AF8E950038B2C7 /* Spa.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Spa.m; sourceTree = "<group>"; };
+		FD66B33521AF8F490038B2C7 /* patch.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = patch.lua; path = serverSample/patch.lua; sourceTree = "<group>"; };
+		FD66B33721AF918B0038B2C7 /* build-scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "build-scripts"; sourceTree = "<group>"; };
+		FD66B33821AF919B0038B2C7 /* stdlib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stdlib; sourceTree = "<group>"; };
+		FD66B33A21AF94200038B2C7 /* spa_stdlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spa_stdlib.h; sourceTree = "<group>"; };
+		FD66B33C21AF99EB0038B2C7 /* lauxlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lauxlib.c; sourceTree = "<group>"; };
+		FD66B33D21AF99EB0038B2C7 /* lmem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lmem.h; sourceTree = "<group>"; };
+		FD66B33E21AF99EB0038B2C7 /* llimits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llimits.h; sourceTree = "<group>"; };
+		FD66B33F21AF99EB0038B2C7 /* luaconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = luaconf.h; sourceTree = "<group>"; };
+		FD66B34021AF99EB0038B2C7 /* lzio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lzio.h; sourceTree = "<group>"; };
+		FD66B34121AF99EB0038B2C7 /* lgc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lgc.h; sourceTree = "<group>"; };
+		FD66B34221AF99EB0038B2C7 /* liolib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = liolib.c; sourceTree = "<group>"; };
+		FD66B34321AF99EB0038B2C7 /* lopcodes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lopcodes.c; sourceTree = "<group>"; };
+		FD66B34421AF99EB0038B2C7 /* lstate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lstate.c; sourceTree = "<group>"; };
+		FD66B34521AF99EB0038B2C7 /* lobject.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lobject.c; sourceTree = "<group>"; };
+		FD66B34621AF99EB0038B2C7 /* lualib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lualib.h; sourceTree = "<group>"; };
+		FD66B34721AF99EB0038B2C7 /* print.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = print.c; sourceTree = "<group>"; };
+		FD66B34821AF99EB0038B2C7 /* lmathlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lmathlib.c; sourceTree = "<group>"; };
+		FD66B34921AF99EB0038B2C7 /* loadlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = loadlib.c; sourceTree = "<group>"; };
+		FD66B34A21AF99EB0038B2C7 /* lvm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lvm.c; sourceTree = "<group>"; };
+		FD66B34B21AF99EB0038B2C7 /* lfunc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lfunc.c; sourceTree = "<group>"; };
+		FD66B34C21AF99EB0038B2C7 /* lstrlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lstrlib.c; sourceTree = "<group>"; };
+		FD66B34D21AF99EB0038B2C7 /* ldebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldebug.h; sourceTree = "<group>"; };
+		FD66B34E21AF99EB0038B2C7 /* linit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = linit.c; sourceTree = "<group>"; };
+		FD66B34F21AF99EB0038B2C7 /* lcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lcode.h; sourceTree = "<group>"; };
+		FD66B35021AF99EB0038B2C7 /* lapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lapi.h; sourceTree = "<group>"; };
+		FD66B35121AF99EB0038B2C7 /* lstring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lstring.c; sourceTree = "<group>"; };
+		FD66B35221AF99EB0038B2C7 /* ldo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ldo.h; sourceTree = "<group>"; };
+		FD66B35321AF99EB0038B2C7 /* lundump.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lundump.c; sourceTree = "<group>"; };
+		FD66B35421AF99EB0038B2C7 /* llex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = llex.h; sourceTree = "<group>"; };
+		FD66B35521AF99EB0038B2C7 /* ltm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ltm.h; sourceTree = "<group>"; };
+		FD66B35621AF99EB0038B2C7 /* ltable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ltable.c; sourceTree = "<group>"; };
+		FD66B35721AF99EB0038B2C7 /* lparser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lparser.h; sourceTree = "<group>"; };
+		FD66B35821AF99EB0038B2C7 /* ldump.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ldump.c; sourceTree = "<group>"; };
+		FD66B35921AF99EB0038B2C7 /* lobject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lobject.h; sourceTree = "<group>"; };
+		FD66B35A21AF99EB0038B2C7 /* lstate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lstate.h; sourceTree = "<group>"; };
+		FD66B35B21AF99EB0038B2C7 /* lopcodes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lopcodes.h; sourceTree = "<group>"; };
+		FD66B35C21AF99EB0038B2C7 /* loslib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = loslib.c; sourceTree = "<group>"; };
+		FD66B35D21AF99EB0038B2C7 /* lgc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lgc.c; sourceTree = "<group>"; };
+		FD66B35E21AF99EB0038B2C7 /* lzio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lzio.c; sourceTree = "<group>"; };
+		FD66B35F21AF99EB0038B2C7 /* ldblib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ldblib.c; sourceTree = "<group>"; };
+		FD66B36021AF99EB0038B2C7 /* lmem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lmem.c; sourceTree = "<group>"; };
+		FD66B36121AF99EB0038B2C7 /* lauxlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lauxlib.h; sourceTree = "<group>"; };
+		FD66B36221AF99EB0038B2C7 /* lvm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lvm.h; sourceTree = "<group>"; };
+		FD66B36321AF99EB0038B2C7 /* lstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lstring.h; sourceTree = "<group>"; };
+		FD66B36421AF99EB0038B2C7 /* lcode.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lcode.c; sourceTree = "<group>"; };
+		FD66B36521AF99EB0038B2C7 /* ltablib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ltablib.c; sourceTree = "<group>"; };
+		FD66B36621AF99EB0038B2C7 /* lapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lapi.c; sourceTree = "<group>"; };
+		FD66B36721AF99EB0038B2C7 /* lbaselib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lbaselib.c; sourceTree = "<group>"; };
+		FD66B36821AF99EB0038B2C7 /* lua.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lua.h; sourceTree = "<group>"; };
+		FD66B36921AF99EB0038B2C7 /* ldebug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ldebug.c; sourceTree = "<group>"; };
+		FD66B36A21AF99EB0038B2C7 /* lfunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lfunc.h; sourceTree = "<group>"; };
+		FD66B36B21AF99EB0038B2C7 /* lparser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lparser.c; sourceTree = "<group>"; };
+		FD66B36C21AF99EB0038B2C7 /* llex.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = llex.c; sourceTree = "<group>"; };
+		FD66B36D21AF99EB0038B2C7 /* ltable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ltable.h; sourceTree = "<group>"; };
+		FD66B36E21AF99EB0038B2C7 /* ltm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ltm.c; sourceTree = "<group>"; };
+		FD66B36F21AF99EB0038B2C7 /* ldo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ldo.c; sourceTree = "<group>"; };
+		FD66B37021AF99EB0038B2C7 /* lundump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lundump.h; sourceTree = "<group>"; };
+		FDB55A0121C35C330061B765 /* SpaDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDB55A0321C35C330061B765 /* SpaDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaDemoTests.m; sourceTree = "<group>"; };
+		FDB55A0521C35C330061B765 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB55A0B21C3A4CF0061B765 /* SpaFunctionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaFunctionTest.m; sourceTree = "<group>"; };
+		FDB55A6721C912260061B765 /* SpaCreateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaCreateTest.m; sourceTree = "<group>"; };
+		FDB55A6921C9123D0061B765 /* SpaBlockFunctionTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaBlockFunctionTest.m; sourceTree = "<group>"; };
+		FDB55A6B21C912510061B765 /* SpaInvokeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaInvokeTest.m; sourceTree = "<group>"; };
+		FDB55A6D21CB2F150061B765 /* SpaBlockCovertTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaBlockCovertTest.m; sourceTree = "<group>"; };
+		FDB55A8221CB70540061B765 /* SpaBlockCreateTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaBlockCreateTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD66B30A21AF8E760038B2C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66B33421AF8EAA0038B2C7 /* libSpa.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD66B32721AF8E950038B2C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD2F949921BE0B1C00EA7D16 /* libffi_sim.a in Frameworks */,
+				FD2F949A21BE0B1C00EA7D16 /* libffi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB559FE21C35C330061B765 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB55A0D21C3A5140061B765 /* libSpa.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD2F948621BE0AD000EA7D16 /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F948721BE0AD000EA7D16 /* include */,
+			);
+			path = libffi;
+			sourceTree = "<group>";
+		};
+		FD2F948721BE0AD000EA7D16 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F948821BE0AD000EA7D16 /* ffi */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		FD2F948821BE0AD000EA7D16 /* ffi */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F948921BE0AD000EA7D16 /* ffitarget_arm64.h */,
+				FD2F948A21BE0AD000EA7D16 /* ffitarget.h */,
+				FD2F948B21BE0AD000EA7D16 /* ffi_i386.h */,
+				FD2F948C21BE0AD000EA7D16 /* ffitarget_x86_64.h */,
+				FD2F948D21BE0AD000EA7D16 /* ffitarget_armv7.h */,
+				FD2F948E21BE0AD000EA7D16 /* ffi_x86_64.h */,
+				FD2F948F21BE0AD000EA7D16 /* ffitarget_i386.h */,
+				FD2F949021BE0AD000EA7D16 /* ffi_armv7.h */,
+				FD2F949121BE0AD000EA7D16 /* ffi.h */,
+				FD2F949221BE0AD000EA7D16 /* ffi_arm64.h */,
+			);
+			path = ffi;
+			sourceTree = "<group>";
+		};
+		FD2F949B21BE14A500EA7D16 /* block */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F94B521BE9EA200EA7D16 /* SpaDynamicBlock.h */,
+				FD2F94B621BE9EA200EA7D16 /* SpaDynamicBlock.m */,
+				FD2F949C21BE150500EA7D16 /* SpaBlockDescription.h */,
+				FD2F949D21BE150500EA7D16 /* SpaBlockDescription.m */,
+				FD2F94B221BE564700EA7D16 /* SpaBlockInstance.h */,
+				FD2F94B321BE564700EA7D16 /* SpaBlockInstance.m */,
+			);
+			path = block;
+			sourceTree = "<group>";
+		};
+		FD66B30421AF8E760038B2C7 = {
+			isa = PBXGroup;
+			children = (
+				FD66B33521AF8F490038B2C7 /* patch.lua */,
+				FD66B30F21AF8E760038B2C7 /* SpaDemo */,
+				FD66B32B21AF8E950038B2C7 /* Spa */,
+				FDB55A0221C35C330061B765 /* SpaDemoTests */,
+				FD66B30E21AF8E760038B2C7 /* Products */,
+				FD66B33321AF8EAA0038B2C7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FD66B30E21AF8E760038B2C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD66B30D21AF8E760038B2C7 /* SpaDemo.app */,
+				FD66B32A21AF8E950038B2C7 /* libSpa.a */,
+				FDB55A0121C35C330061B765 /* SpaDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD66B30F21AF8E760038B2C7 /* SpaDemo */ = {
+			isa = PBXGroup;
+			children = (
+				FD66B31021AF8E760038B2C7 /* AppDelegate.h */,
+				FD66B31121AF8E760038B2C7 /* AppDelegate.m */,
+				FD66B31321AF8E760038B2C7 /* ViewController.h */,
+				FD66B31421AF8E760038B2C7 /* ViewController.m */,
+				FD66B31621AF8E760038B2C7 /* Main.storyboard */,
+				FD66B31921AF8E770038B2C7 /* Assets.xcassets */,
+				FD66B31B21AF8E770038B2C7 /* LaunchScreen.storyboard */,
+				FD66B31E21AF8E770038B2C7 /* Info.plist */,
+				FD66B31F21AF8E770038B2C7 /* main.m */,
+			);
+			path = SpaDemo;
+			sourceTree = "<group>";
+		};
+		FD66B32B21AF8E950038B2C7 /* Spa */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F949B21BE14A500EA7D16 /* block */,
+				FD2F948621BE0AD000EA7D16 /* libffi */,
+				FD66B33B21AF99EB0038B2C7 /* lua */,
+				FD66B33821AF919B0038B2C7 /* stdlib */,
+				FD66B33721AF918B0038B2C7 /* build-scripts */,
+				FD66B32C21AF8E950038B2C7 /* Spa.h */,
+				FD66B32D21AF8E950038B2C7 /* Spa.m */,
+				FD2F948021B5195C00EA7D16 /* SpaDefine.h */,
+				FD2F947C21B2975600EA7D16 /* Spa+Private.h */,
+				FD2F947921B148F000EA7D16 /* SpaUtil.h */,
+				FD2F947A21B148F000EA7D16 /* SpaUtil.m */,
+				FD2F947621B0E93D00EA7D16 /* SpaClass.h */,
+				FD2F947721B0E93D00EA7D16 /* SpaClass.m */,
+				FD2F948121B6620900EA7D16 /* SpaInstance.h */,
+				FD2F948221B6620900EA7D16 /* SpaInstance.m */,
+				FD66B33A21AF94200038B2C7 /* spa_stdlib.h */,
+				FD2F947D21B2A7EA00EA7D16 /* SpaConverter.h */,
+				FD2F947E21B2A7EB00EA7D16 /* SpaConverter.m */,
+				FD2F94BC21C2493600EA7D16 /* SpaSimplePing.h */,
+				FD2F94BB21C2493600EA7D16 /* SpaSimplePing.m */,
+				FD2F94BE21C24D4B00EA7D16 /* SpaTrace.h */,
+				FD2F94BF21C24D4B00EA7D16 /* SpaTrace.m */,
+			);
+			path = Spa;
+			sourceTree = "<group>";
+		};
+		FD66B33321AF8EAA0038B2C7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD2F949721BE0B1C00EA7D16 /* libffi_sim.a */,
+				FD2F949821BE0B1C00EA7D16 /* libffi.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD66B33B21AF99EB0038B2C7 /* lua */ = {
+			isa = PBXGroup;
+			children = (
+				FD66B33C21AF99EB0038B2C7 /* lauxlib.c */,
+				FD66B33D21AF99EB0038B2C7 /* lmem.h */,
+				FD66B33E21AF99EB0038B2C7 /* llimits.h */,
+				FD66B33F21AF99EB0038B2C7 /* luaconf.h */,
+				FD66B34021AF99EB0038B2C7 /* lzio.h */,
+				FD66B34121AF99EB0038B2C7 /* lgc.h */,
+				FD66B34221AF99EB0038B2C7 /* liolib.c */,
+				FD66B34321AF99EB0038B2C7 /* lopcodes.c */,
+				FD66B34421AF99EB0038B2C7 /* lstate.c */,
+				FD66B34521AF99EB0038B2C7 /* lobject.c */,
+				FD66B34621AF99EB0038B2C7 /* lualib.h */,
+				FD66B34721AF99EB0038B2C7 /* print.c */,
+				FD66B34821AF99EB0038B2C7 /* lmathlib.c */,
+				FD66B34921AF99EB0038B2C7 /* loadlib.c */,
+				FD66B34A21AF99EB0038B2C7 /* lvm.c */,
+				FD66B34B21AF99EB0038B2C7 /* lfunc.c */,
+				FD66B34C21AF99EB0038B2C7 /* lstrlib.c */,
+				FD66B34D21AF99EB0038B2C7 /* ldebug.h */,
+				FD66B34E21AF99EB0038B2C7 /* linit.c */,
+				FD66B34F21AF99EB0038B2C7 /* lcode.h */,
+				FD66B35021AF99EB0038B2C7 /* lapi.h */,
+				FD66B35121AF99EB0038B2C7 /* lstring.c */,
+				FD66B35221AF99EB0038B2C7 /* ldo.h */,
+				FD66B35321AF99EB0038B2C7 /* lundump.c */,
+				FD66B35421AF99EB0038B2C7 /* llex.h */,
+				FD66B35521AF99EB0038B2C7 /* ltm.h */,
+				FD66B35621AF99EB0038B2C7 /* ltable.c */,
+				FD66B35721AF99EB0038B2C7 /* lparser.h */,
+				FD66B35821AF99EB0038B2C7 /* ldump.c */,
+				FD66B35921AF99EB0038B2C7 /* lobject.h */,
+				FD66B35A21AF99EB0038B2C7 /* lstate.h */,
+				FD66B35B21AF99EB0038B2C7 /* lopcodes.h */,
+				FD66B35C21AF99EB0038B2C7 /* loslib.c */,
+				FD66B35D21AF99EB0038B2C7 /* lgc.c */,
+				FD66B35E21AF99EB0038B2C7 /* lzio.c */,
+				FD66B35F21AF99EB0038B2C7 /* ldblib.c */,
+				FD66B36021AF99EB0038B2C7 /* lmem.c */,
+				FD66B36121AF99EB0038B2C7 /* lauxlib.h */,
+				FD66B36221AF99EB0038B2C7 /* lvm.h */,
+				FD66B36321AF99EB0038B2C7 /* lstring.h */,
+				FD66B36421AF99EB0038B2C7 /* lcode.c */,
+				FD66B36521AF99EB0038B2C7 /* ltablib.c */,
+				FD66B36621AF99EB0038B2C7 /* lapi.c */,
+				FD66B36721AF99EB0038B2C7 /* lbaselib.c */,
+				FD66B36821AF99EB0038B2C7 /* lua.h */,
+				FD66B36921AF99EB0038B2C7 /* ldebug.c */,
+				FD66B36A21AF99EB0038B2C7 /* lfunc.h */,
+				FD66B36B21AF99EB0038B2C7 /* lparser.c */,
+				FD66B36C21AF99EB0038B2C7 /* llex.c */,
+				FD66B36D21AF99EB0038B2C7 /* ltable.h */,
+				FD66B36E21AF99EB0038B2C7 /* ltm.c */,
+				FD66B36F21AF99EB0038B2C7 /* ldo.c */,
+				FD66B37021AF99EB0038B2C7 /* lundump.h */,
+			);
+			path = lua;
+			sourceTree = "<group>";
+		};
+		FDB55A0221C35C330061B765 /* SpaDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDB55A0321C35C330061B765 /* SpaDemoTests.m */,
+				FDB55A0B21C3A4CF0061B765 /* SpaFunctionTest.m */,
+				E317945821C62B9400931605 /* SpaConvertTest.m */,
+				FDB55A6721C912260061B765 /* SpaCreateTest.m */,
+				FDB55A6921C9123D0061B765 /* SpaBlockFunctionTest.m */,
+				FDB55A6D21CB2F150061B765 /* SpaBlockCovertTest.m */,
+				FDB55A8221CB70540061B765 /* SpaBlockCreateTest.m */,
+				FDB55A6B21C912510061B765 /* SpaInvokeTest.m */,
+				E317946121CE203D00931605 /* SpaOtherTest.m */,
+				FDB55A0521C35C330061B765 /* Info.plist */,
+			);
+			path = SpaDemoTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD66B30C21AF8E760038B2C7 /* SpaDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD66B32321AF8E770038B2C7 /* Build configuration list for PBXNativeTarget "SpaDemo" */;
+			buildPhases = (
+				FD66B30921AF8E760038B2C7 /* Sources */,
+				FD66B30A21AF8E760038B2C7 /* Frameworks */,
+				FD66B30B21AF8E760038B2C7 /* Resources */,
+				FD66B33921AF926D0038B2C7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpaDemo;
+			productName = SpaDemo;
+			productReference = FD66B30D21AF8E760038B2C7 /* SpaDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD66B32921AF8E950038B2C7 /* Spa */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD66B33021AF8E950038B2C7 /* Build configuration list for PBXNativeTarget "Spa" */;
+			buildPhases = (
+				FD66B32621AF8E950038B2C7 /* Sources */,
+				FD66B32721AF8E950038B2C7 /* Frameworks */,
+				FD66B32821AF8E950038B2C7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spa;
+			productName = Spa;
+			productReference = FD66B32A21AF8E950038B2C7 /* libSpa.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FDB55A0021C35C330061B765 /* SpaDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDB55A0A21C35C330061B765 /* Build configuration list for PBXNativeTarget "SpaDemoTests" */;
+			buildPhases = (
+				FDB559FD21C35C330061B765 /* Sources */,
+				FDB559FE21C35C330061B765 /* Frameworks */,
+				FDB559FF21C35C330061B765 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDB55A0721C35C330061B765 /* PBXTargetDependency */,
+			);
+			name = SpaDemoTests;
+			productName = SpaDemoTests;
+			productReference = FDB55A0121C35C330061B765 /* SpaDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD66B30521AF8E760038B2C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Family Fan";
+				TargetAttributes = {
+					FD66B30C21AF8E760038B2C7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FD66B32921AF8E950038B2C7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FDB55A0021C35C330061B765 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FD66B30C21AF8E760038B2C7;
+					};
+				};
+			};
+			buildConfigurationList = FD66B30821AF8E760038B2C7 /* Build configuration list for PBXProject "SpaDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD66B30421AF8E760038B2C7;
+			productRefGroup = FD66B30E21AF8E760038B2C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD66B30C21AF8E760038B2C7 /* SpaDemo */,
+				FD66B32921AF8E950038B2C7 /* Spa */,
+				FDB55A0021C35C330061B765 /* SpaDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD66B30B21AF8E760038B2C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66B31D21AF8E770038B2C7 /* LaunchScreen.storyboard in Resources */,
+				FD66B33621AF8F490038B2C7 /* patch.lua in Resources */,
+				FD66B31A21AF8E770038B2C7 /* Assets.xcassets in Resources */,
+				FD66B31821AF8E760038B2C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB559FF21C35C330061B765 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FD66B33921AF926D0038B2C7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd Spa/build-scripts\n./compile-stdlib.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD66B30921AF8E760038B2C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66B31521AF8E760038B2C7 /* ViewController.m in Sources */,
+				FD66B32021AF8E770038B2C7 /* main.m in Sources */,
+				FD66B31221AF8E760038B2C7 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD66B32621AF8E950038B2C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD66B38821AF99EB0038B2C7 /* lapi.c in Sources */,
+				FD66B38121AF99EB0038B2C7 /* loslib.c in Sources */,
+				FD2F94B721BE9EA200EA7D16 /* SpaDynamicBlock.m in Sources */,
+				FD66B38C21AF99EB0038B2C7 /* llex.c in Sources */,
+				FD2F947F21B2A7EB00EA7D16 /* SpaConverter.m in Sources */,
+				FD66B37721AF99EB0038B2C7 /* lmathlib.c in Sources */,
+				FD66B37321AF99EB0038B2C7 /* lopcodes.c in Sources */,
+				FD66B37521AF99EB0038B2C7 /* lobject.c in Sources */,
+				FD2F94C021C24D4B00EA7D16 /* SpaTrace.m in Sources */,
+				FD66B38E21AF99EB0038B2C7 /* ldo.c in Sources */,
+				FD66B38721AF99EB0038B2C7 /* ltablib.c in Sources */,
+				FD66B37621AF99EB0038B2C7 /* print.c in Sources */,
+				FD66B38321AF99EB0038B2C7 /* lzio.c in Sources */,
+				FD2F94BD21C2493600EA7D16 /* SpaSimplePing.m in Sources */,
+				FD66B38D21AF99EB0038B2C7 /* ltm.c in Sources */,
+				FD66B38421AF99EB0038B2C7 /* ldblib.c in Sources */,
+				FD66B38921AF99EB0038B2C7 /* lbaselib.c in Sources */,
+				FD66B37821AF99EB0038B2C7 /* loadlib.c in Sources */,
+				FD2F947B21B148F000EA7D16 /* SpaUtil.m in Sources */,
+				FD66B37D21AF99EB0038B2C7 /* lstring.c in Sources */,
+				FD66B38021AF99EB0038B2C7 /* ldump.c in Sources */,
+				FD66B37221AF99EB0038B2C7 /* liolib.c in Sources */,
+				FD66B37C21AF99EB0038B2C7 /* linit.c in Sources */,
+				FD66B38A21AF99EB0038B2C7 /* ldebug.c in Sources */,
+				FD66B37A21AF99EB0038B2C7 /* lfunc.c in Sources */,
+				FD66B38621AF99EB0038B2C7 /* lcode.c in Sources */,
+				FD66B38521AF99EB0038B2C7 /* lmem.c in Sources */,
+				FD2F94B421BE564700EA7D16 /* SpaBlockInstance.m in Sources */,
+				FD2F948321B6620900EA7D16 /* SpaInstance.m in Sources */,
+				FD66B37921AF99EB0038B2C7 /* lvm.c in Sources */,
+				FD66B37121AF99EB0038B2C7 /* lauxlib.c in Sources */,
+				FD2F949E21BE150500EA7D16 /* SpaBlockDescription.m in Sources */,
+				FD66B37B21AF99EB0038B2C7 /* lstrlib.c in Sources */,
+				FD66B3A221AFAE200038B2C7 /* Spa.m in Sources */,
+				FD66B38B21AF99EB0038B2C7 /* lparser.c in Sources */,
+				FD66B37F21AF99EB0038B2C7 /* ltable.c in Sources */,
+				FD66B38221AF99EB0038B2C7 /* lgc.c in Sources */,
+				FD66B37E21AF99EB0038B2C7 /* lundump.c in Sources */,
+				FD66B37421AF99EB0038B2C7 /* lstate.c in Sources */,
+				FD2F947821B0E93D00EA7D16 /* SpaClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDB559FD21C35C330061B765 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDB55A0C21C3A4CF0061B765 /* SpaFunctionTest.m in Sources */,
+				E317945921C62B9400931605 /* SpaConvertTest.m in Sources */,
+				FDB55A8321CB70540061B765 /* SpaBlockCreateTest.m in Sources */,
+				FDB55A6C21C912510061B765 /* SpaInvokeTest.m in Sources */,
+				FDB55A6821C912260061B765 /* SpaCreateTest.m in Sources */,
+				FDB55A6E21CB2F150061B765 /* SpaBlockCovertTest.m in Sources */,
+				FDB55A0421C35C330061B765 /* SpaDemoTests.m in Sources */,
+				E317946221CE203D00931605 /* SpaOtherTest.m in Sources */,
+				FDB55A6A21C9123D0061B765 /* SpaBlockFunctionTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FDB55A0721C35C330061B765 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD66B30C21AF8E760038B2C7 /* SpaDemo */;
+			targetProxy = FDB55A0621C35C330061B765 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD66B31621AF8E760038B2C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD66B31721AF8E760038B2C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD66B31B21AF8E770038B2C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD66B31C21AF8E770038B2C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD66B32121AF8E770038B2C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD66B32221AF8E770038B2C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD66B32421AF8E770038B2C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SpaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fanfei.SpaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD66B32521AF8E770038B2C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SpaDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fanfei.SpaDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FD66B33121AF8E950038B2C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spa/libffi",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD66B33221AF8E950038B2C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Spa/libffi",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FDB55A0821C35C330061B765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SpaDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fanfei.SpaDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaDemo.app/SpaDemo";
+			};
+			name = Debug;
+		};
+		FDB55A0921C35C330061B765 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SpaDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fanfei.SpaDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaDemo.app/SpaDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD66B30821AF8E760038B2C7 /* Build configuration list for PBXProject "SpaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD66B32121AF8E770038B2C7 /* Debug */,
+				FD66B32221AF8E770038B2C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD66B32321AF8E770038B2C7 /* Build configuration list for PBXNativeTarget "SpaDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD66B32421AF8E770038B2C7 /* Debug */,
+				FD66B32521AF8E770038B2C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD66B33021AF8E950038B2C7 /* Build configuration list for PBXNativeTarget "Spa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD66B33121AF8E950038B2C7 /* Debug */,
+				FD66B33221AF8E950038B2C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDB55A0A21C35C330061B765 /* Build configuration list for PBXNativeTarget "SpaDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDB55A0821C35C330061B765 /* Debug */,
+				FDB55A0921C35C330061B765 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD66B30521AF8E760038B2C7 /* Project object */;
+}
