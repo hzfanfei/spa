@@ -125,8 +125,7 @@ Objective-c
 
 - (void(^)(void))doSomeThing
 {
-	void(^block)(void) = ^() {
-	};
+    void(^block)(void) = ^() { };
     return block;
 }
 ```
@@ -148,8 +147,7 @@ Objective-c
 
 - (void(^)(int))doSomeThing
 {
-	void(^block)(int) = ^(int i) {
-	};
+    void(^block)(int) = ^(int i) { };
     return block;
 }
 ```
@@ -173,8 +171,8 @@ Objective-c
 
 - (void)doSomeThing_(CGPoint)p
 {
-	int x = p.x;
-	int y = p.y;
+    int x = p.x;
+    int y = p.y;
 }
 ```
 
@@ -196,7 +194,7 @@ Objective-c
 
 - (CGPoint)doSomeThing
 {
-	CGPoint p;
+    CGPoint p;
     p.x = 3;
     p.y = 4;
     return p;
