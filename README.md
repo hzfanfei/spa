@@ -2,7 +2,7 @@
 
 lua hotfix ios app
 
-### rebore run spa demo
+### before run spa demo
 
 cd serverSample
 
