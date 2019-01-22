@@ -2,6 +2,12 @@
 
 lua hotfix ios app
 
+### rebore run spa demo
+
+cd serverSample
+
+node server.js
+
 ### situation 1
 
 Objective-c
