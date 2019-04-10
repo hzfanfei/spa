@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "spa"
-  s.version      = "1.1.0"
+  s.version      = "1.1.1"
   s.summary      = "lua hotfix solution"
 
   s.description  = "hope to online"
