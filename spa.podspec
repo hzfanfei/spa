@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "lua hotfix solution"
 
   s.description  = "hope to online"
-  s.platform = :ios
+  s.platform = :ios, "8.0"
   s.homepage     = "https://github.com/hzfanfei/spa"
   s.license      = "hzfanfei"
   s.requires_arc = true
