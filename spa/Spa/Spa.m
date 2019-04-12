@@ -8,9 +8,6 @@
 
 #import "Spa.h"
 #import "SpaUtil.h"
-#import "lauxlib.h"
-#import "lobject.h"
-#import "lualib.h"
 #import "SpaClass.h"
 #import "SpaInstance.h"
 #import "SpaConverter.h"
@@ -223,6 +220,11 @@ static const struct luaL_Reg Methods[] = {
     });
 }
 
+- (lua_State *)getLuaState
+{
+    return [Spa sharedInstace]._lua_state;
+}
+
 - (SpaTrace *)spaTrace
 {
     return _spa_trace;
@@ -241,4 +243,5 @@ static const struct luaL_Reg Methods[] = {
     lua_State* L = [spa lua_state];
     spa_stackDump(L);
 }
+
 @end

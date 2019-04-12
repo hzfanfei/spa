@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "lauxlib.h"
+#import "lobject.h"
+#import "lualib.h"
 
 #define SPA_MODULE "spa"
 
@@ -19,5 +22,7 @@ typedef void (^spa_log_block_t)(NSString *log);
 - (void)usePatch:(NSString *)patch;
 
 - (void)setLogBlock:(spa_log_block_t)block;
+
+- (lua_State *)getLuaState;
 
 @end
