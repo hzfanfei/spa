@@ -159,12 +159,12 @@ static const struct luaL_Reg Methods[] = {
     {NULL, NULL}
 };
 
-- (void)setup:(lua_State *)L
+- (void)setup:(lua_State *)L originState:(lua_State *)originL
 {
     spa_safeInLuaStack(L, ^int{
         luaL_register(L, SPA_MODULE, Methods);
-        [self.spa_class setup:L];
-        [self.spa_instance setup:L];
+        [self.spa_class setup:L originState:originL];
+        [self.spa_instance setup:L originState:originL];
         [self.spa_trace setup:L];
         return 0;
     });
@@ -187,16 +187,21 @@ static const struct luaL_Reg Methods[] = {
     return _spa_logBlock;
 }
 
+static int panic(lua_State *L) {
+    NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+    Spa* spa = [Spa sharedInstace];
+    if (spa.spa_logBlock) {
+        spa.spa_logBlock(log);
+    }
+    printf("[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1));
+    return 0;
+}
+
 - (void)usePatch:(NSString *)patch
 {
     lua_State* L = lua_open();
-    Spa* spa = [Spa sharedInstace];
-    if (spa._lua_state) {
-        lua_close(spa._lua_state);
-        spa._lua_state = NULL;
-    }
-    spa._lua_state = L;
     luaL_openlibs(L);
+    lua_atpanic(L, panic);
     
     char stdlib[] = SPA_STDLIB;
     size_t stdlibSize = sizeof(stdlib);
@@ -206,7 +211,15 @@ static const struct luaL_Reg Methods[] = {
         return ;
     }
     
-    [self setup:L];
+    Spa* spa = [Spa sharedInstace];
+    
+    [self setup:L originState:spa._lua_state];
+    
+    if (spa._lua_state) {
+        lua_close(spa._lua_state);
+        spa._lua_state = NULL;
+    }
+    spa._lua_state = L;
     
     spa_safeInLuaStack(L, ^int{
         long size = strlen(patch.UTF8String);

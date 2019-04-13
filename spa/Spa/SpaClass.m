@@ -216,7 +216,7 @@ static int __index(lua_State *L)
         return 0;
     }
     Class klass = object_getClass(userdata->instance);
-    if ([klass instancesRespondToSelector:NSSelectorFromString([NSString stringWithFormat:@"%s", func])]) {
+    if ([klass instancesRespondToSelector:NSSelectorFromString([NSString stringWithFormat:@"%s", spa_toObjcSel(func)])]) {
         lua_pushcclosure(L, spa_invoke, 1);
         return 1;
     }
@@ -276,7 +276,7 @@ static const struct luaL_Reg MetaMethods[] = {
     {NULL, NULL}
 };
 
-- (void)setup:(lua_State *)L
+- (void)setup:(lua_State *)L originState:(lua_State *)originL
 {
     //  recover add replace method
     [[SpaClass replacedClassMethods] enumerateObjectsUsingBlock:^(NSDictionary* obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -289,7 +289,15 @@ static const struct luaL_Reg MetaMethods[] = {
     luaL_register(L, SPA_CLASS, Methods);
     luaL_newmetatable(L, SPA_CLASS_META_TABLE);
     luaL_register(L, NULL, MetaMethods);
-    luaL_newmetatable(L, SPA_CLASS_LIST_TABLE);
+    
+    // copy origin L table to L
+    if (originL) {
+        luaL_getmetatable(originL, SPA_CLASS_LIST_TABLE);
+        lua_pushvalue(L, -1);
+        lua_setfield(L, LUA_REGISTRYINDEX, SPA_CLASS_LIST_TABLE);
+    } else {
+        luaL_newmetatable(L, SPA_CLASS_LIST_TABLE);
+    }
 }
 
 static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *invocation)

@@ -148,17 +148,25 @@ static const struct luaL_Reg MetaMethods[] = {
 
 @implementation SpaInstance
 
-- (void)setup:(lua_State *)L
+- (void)setup:(lua_State *)L originState:(lua_State *)originL
 {
     luaL_register(L, SPA_INSTANCE, Methods);
     luaL_newmetatable(L, SPA_INSTANCE_META_TABLE);
     luaL_register(L, NULL, MetaMethods);
-    luaL_newmetatable(L, SPA_INSTANCE_LIST_TABLE);
     
-    lua_newtable(L);
-    lua_pushstring(L, "v");
-    lua_setfield(L, -2, "__mode");  // Make weak table
-    lua_setmetatable(L, -2);
+    // copy origin L table to L
+    if (originL) {
+        luaL_getmetatable(originL, SPA_INSTANCE_LIST_TABLE);
+        lua_pushvalue(L, -1);
+        lua_setfield(L, LUA_REGISTRYINDEX, SPA_INSTANCE_LIST_TABLE);
+    } else {
+        luaL_newmetatable(L, SPA_INSTANCE_LIST_TABLE);
+        
+        lua_newtable(L);
+        lua_pushstring(L, "k");
+        lua_setfield(L, -2, "__mode");  // Make weak table
+        lua_setmetatable(L, -2);
+    }
 }
 
 + (int)createInstanceUserData:(lua_State *)L object:(id)object
