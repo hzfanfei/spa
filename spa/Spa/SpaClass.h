@@ -18,7 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SpaClass : NSObject
 
-- (void)setup:(lua_State *)L originState:(lua_State *)originL;
+- (void)setup:(lua_State *)L;
+
+- (void)load;
 
 + (int)createClassUserData:(lua_State *)L klass_name:(const char *)klass_name;
 

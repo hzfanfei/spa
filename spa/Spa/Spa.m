@@ -159,12 +159,17 @@ static const struct luaL_Reg Methods[] = {
     {NULL, NULL}
 };
 
-- (void)setup:(lua_State *)L originState:(lua_State *)originL
+- (void)load
+{
+    [self.spa_class load];
+}
+
+- (void)setup:(lua_State *)L
 {
     spa_safeInLuaStack(L, ^int{
         luaL_register(L, SPA_MODULE, Methods);
-        [self.spa_class setup:L originState:originL];
-        [self.spa_instance setup:L originState:originL];
+        [self.spa_class setup:L];
+        [self.spa_instance setup:L];
         [self.spa_trace setup:L];
         return 0;
     });
@@ -199,27 +204,28 @@ static int panic(lua_State *L) {
 
 - (void)usePatch:(NSString *)patch
 {
-    lua_State* L = lua_open();
-    luaL_openlibs(L);
-    lua_atpanic(L, panic);
-    
-    char stdlib[] = SPA_STDLIB;
-    size_t stdlibSize = sizeof(stdlib);
-    
-    if (luaL_loadbuffer(L, stdlib, stdlibSize, "loading spa stdlib") || lua_pcall(L, 0, LUA_MULTRET, 0)) {
-        printf("opening spa stdlib failed: %s\n", lua_tostring(L,-1));
-        return ;
-    }
     
     Spa* spa = [Spa sharedInstace];
-    
-    [self setup:L originState:spa._lua_state];
-    
-    if (spa._lua_state) {
-        lua_close(spa._lua_state);
-        spa._lua_state = NULL;
+    lua_State* L = spa._lua_state;
+    if (!L) {
+        L = lua_open();
+        luaL_openlibs(L);
+        lua_atpanic(L, panic);
+        
+        char stdlib[] = SPA_STDLIB;
+        size_t stdlibSize = sizeof(stdlib);
+        
+        if (luaL_loadbuffer(L, stdlib, stdlibSize, "loading spa stdlib") || lua_pcall(L, 0, LUA_MULTRET, 0)) {
+            printf("opening spa stdlib failed: %s\n", lua_tostring(L,-1));
+            return ;
+        }
+        
+        [self setup:L];
+
+        spa._lua_state = L;
     }
-    spa._lua_state = L;
+    
+    [self load];
     
     spa_safeInLuaStack(L, ^int{
         long size = strlen(patch.UTF8String);

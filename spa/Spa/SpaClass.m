@@ -276,7 +276,7 @@ static const struct luaL_Reg MetaMethods[] = {
     {NULL, NULL}
 };
 
-- (void)setup:(lua_State *)L originState:(lua_State *)originL
+- (void)load
 {
     //  recover add replace method
     [[SpaClass replacedClassMethods] enumerateObjectsUsingBlock:^(NSDictionary* obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -285,19 +285,14 @@ static const struct luaL_Reg MetaMethods[] = {
         recoverMethod_(klass.UTF8String, sel.UTF8String);
     }];
     [[SpaClass replacedClassMethods] removeAllObjects];
-    
+}
+
+- (void)setup:(lua_State *)L
+{
     luaL_register(L, SPA_CLASS, Methods);
     luaL_newmetatable(L, SPA_CLASS_META_TABLE);
     luaL_register(L, NULL, MetaMethods);
-    
-    // copy origin L table to L
-    if (originL) {
-        luaL_getmetatable(originL, SPA_CLASS_LIST_TABLE);
-        lua_pushvalue(L, -1);
-        lua_setfield(L, LUA_REGISTRYINDEX, SPA_CLASS_LIST_TABLE);
-    } else {
-        luaL_newmetatable(L, SPA_CLASS_LIST_TABLE);
-    }
+    luaL_newmetatable(L, SPA_CLASS_LIST_TABLE);
 }
 
 static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *invocation)
