@@ -20,6 +20,7 @@ typedef void (^spa_log_block_t)(NSString *log);
 + (instancetype)sharedInstace;
 
 - (void)usePatch:(NSString *)patch;
+- (void)usePatchAppend:(NSString *)patch;
 
 - (void)setLogBlock:(spa_log_block_t)block;
 

@@ -49,7 +49,7 @@ typedef void (^spa_hoder_free_block_t)(void);
 
 + (void *)toStruct:(lua_State *)L typeDescription:(const char *)typeDescription index:(int)index
 {
-    NSArray* class2des = spa_parseStructFromTypeDescription([NSString stringWithFormat:@"%s", typeDescription]);
+    NSArray* class2des = spa_parseStructFromTypeDescription([NSString stringWithUTF8String:typeDescription]);
     if (class2des.count > 1) {
         NSString* className = class2des[0];
         className = [NSString stringWithFormat:@"SPA_%@", className];
@@ -155,7 +155,7 @@ typedef void (^spa_hoder_free_block_t)(void);
             SEL p;
         };
         struct S* s = malloc(sizeof(struct S));
-        s->p = NSSelectorFromString([NSString stringWithFormat:@"%s", string]);
+        s->p = NSSelectorFromString([NSString stringWithUTF8String:string]);
         __unused SpaHoderHelper* __autoreleasing sh = [[SpaHoderHelper alloc] init:^void{
             free(s);
         }];
@@ -176,7 +176,7 @@ typedef void (^spa_hoder_free_block_t)(void);
                 return [self createOneKeyHoderObjectPtr:L type:type value:@(lua_tonumber(L, index))];
             case LUA_TSTRING:
             {
-                id string = [NSString stringWithFormat:@"%s", lua_tostring(L, index)];
+                id string = [NSString stringWithUTF8String:lua_tostring(L, index)];
                 return [self createOneKeyHoderObjectPtr:L type:type value:string];
             }
             case LUA_TTABLE:
@@ -251,7 +251,7 @@ typedef void (^spa_hoder_free_block_t)(void);
                     
                     const char* return_type = lua_tostring(L, -1);
                     if (return_type) {
-                        returnType = [NSString stringWithFormat:@"%s", return_type];
+                        returnType = [NSString stringWithUTF8String:return_type];
                     }
                     // get params type
                     lua_getfield(L, -2, "args_type");
@@ -263,7 +263,7 @@ typedef void (^spa_hoder_free_block_t)(void);
                             if (type == LUA_TSTRING) {
                                 const char * arg_type = lua_tostring(L, -1);
                                 if (arg_type) {
-                                    [argsType addObject:[NSString stringWithFormat:@"%s", arg_type]];
+                                    [argsType addObject:[NSString stringWithUTF8String:arg_type]];
                                 }
                                 lua_pop(L, 1);
                             }
@@ -278,7 +278,7 @@ typedef void (^spa_hoder_free_block_t)(void);
                 // set lua function to env
                 lua_newtable(L);
                 lua_pushstring(L, "f");
-                lua_pushvalue(L, 1);
+                lua_pushvalue(L, 2);
                 lua_settable(L, -3);
                 lua_setfenv(L, -2);
                 
@@ -347,7 +347,7 @@ typedef void (^spa_hoder_free_block_t)(void);
 + (int)toLuaTableFromStruct:(lua_State *)L typeDescription:(const char *)typeDescription buffer:(void *)buffer
 {
     // create object
-    NSArray* class2des = spa_parseStructFromTypeDescription([NSString stringWithFormat:@"%s", typeDescription]);
+    NSArray* class2des = spa_parseStructFromTypeDescription([NSString stringWithUTF8String:typeDescription]);
     if (class2des.count > 1) {
         NSString* className = class2des[0];
         className = [NSString stringWithFormat:@"SPA_%@", className];

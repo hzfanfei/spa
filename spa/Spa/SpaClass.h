@@ -20,8 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setup:(lua_State *)L;
 
-- (void)load;
-
 + (int)createClassUserData:(lua_State *)L klass_name:(const char *)klass_name;
 
 @end

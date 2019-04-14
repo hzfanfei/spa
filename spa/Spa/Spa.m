@@ -159,11 +159,6 @@ static const struct luaL_Reg Methods[] = {
     {NULL, NULL}
 };
 
-- (void)load
-{
-    [self.spa_class load];
-}
-
 - (void)setup:(lua_State *)L
 {
     spa_safeInLuaStack(L, ^int{
@@ -204,7 +199,41 @@ static int panic(lua_State *L) {
 
 - (void)usePatch:(NSString *)patch
 {
+    Spa* spa = [Spa sharedInstace];
+    if (spa._lua_state) {
+        lua_close(spa._lua_state);
+        spa._lua_state = NULL;
+    }
+    lua_State* L = lua_open();
+    luaL_openlibs(L);
+    lua_atpanic(L, panic);
     
+    char stdlib[] = SPA_STDLIB;
+    size_t stdlibSize = sizeof(stdlib);
+    
+    if (luaL_loadbuffer(L, stdlib, stdlibSize, "loading spa stdlib") || lua_pcall(L, 0, LUA_MULTRET, 0)) {
+        printf("opening spa stdlib failed: %s\n", lua_tostring(L,-1));
+        return ;
+    }
+    
+    [self setup:L];
+    
+    spa._lua_state = L;
+    
+    spa_safeInLuaStack(L, ^int{
+        long size = strlen(patch.UTF8String);
+        char* appLoadString = malloc(size);
+        snprintf(appLoadString, size, "%s", patch.UTF8String); // Strip the extension off the file.
+        if (luaL_dostring(L, appLoadString) != 0) {
+            printf("opening spa scripts failed: %s\n", lua_tostring(L,-1));
+        }
+        free(appLoadString);
+        return 0;
+    });
+}
+
+- (void)usePatchAppend:(NSString *)patch
+{
     Spa* spa = [Spa sharedInstace];
     lua_State* L = spa._lua_state;
     if (!L) {
@@ -221,11 +250,9 @@ static int panic(lua_State *L) {
         }
         
         [self setup:L];
-
+        
         spa._lua_state = L;
     }
-    
-    [self load];
     
     spa_safeInLuaStack(L, ^int{
         long size = strlen(patch.UTF8String);
