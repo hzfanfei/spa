@@ -299,8 +299,7 @@ static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *in
         int nresults = [signature methodReturnLength] ? 1 : 0;
         // get from table
         luaL_getmetatable(L, SPA_CLASS_LIST_TABLE);
-        //in case self KVO ,object_getClassName(self) get wrong class
-        lua_getfield(L, -1, [NSStringFromClass([self class]) UTF8String]);
+        lua_getfield(L, -1, object_getClassName(self));
         lua_getfenv(L, -1);
 
         if ([self class] == self) {
