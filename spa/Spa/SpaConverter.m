@@ -319,7 +319,9 @@ typedef void (^spa_hoder_free_block_t)(void);
 + (int)toLuaObject:(lua_State *)L object:(id)object
 {
     return spa_safeInLuaStack(L, ^int{
-        if ([object isKindOfClass:[NSString class]]) {
+        if(!object){
+            lua_pushnil(L);
+        } else if ([object isKindOfClass:[NSString class]]) {
             lua_pushstring(L, [object UTF8String]);
         } else if ([object isKindOfClass:[NSNumber class]]) {
             lua_pushnumber(L, [object doubleValue]);
