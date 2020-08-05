@@ -212,6 +212,10 @@ static int panic(lua_State *L) {
     size_t stdlibSize = sizeof(stdlib);
     
     if (luaL_loadbuffer(L, stdlib, stdlibSize, "loading spa stdlib") || lua_pcall(L, 0, LUA_MULTRET, 0)) {
+        NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: opening spa stdlib failed: %s\n", lua_tostring(L, -1)];
+        if (spa.spa_logBlock) {
+            spa.spa_logBlock(log);
+        }
         printf("opening spa stdlib failed: %s\n", lua_tostring(L,-1));
         return ;
     }
@@ -225,6 +229,11 @@ static int panic(lua_State *L) {
         char* appLoadString = malloc(size);
         snprintf(appLoadString, size, "%s", patch.UTF8String); // Strip the extension off the file.
         if (luaL_dostring(L, appLoadString) != 0) {
+            NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: opening spa scripts failed (%s)\n", lua_tostring(L, -1)];
+            Spa* spa = [Spa sharedInstace];
+            if (spa.spa_logBlock) {
+                spa.spa_logBlock(log);
+            }
             printf("opening spa scripts failed: %s\n", lua_tostring(L,-1));
         }
         free(appLoadString);
