@@ -148,6 +148,18 @@ static int _dispatch_after(lua_State *L)
     return 0;
 }
 
+static Boolean _isNull(lua_State *L){
+    return spa_safeInLuaStack(L, ^int{
+        void **ud = (void **)lua_touserdata(L, -1);
+        if (ud == NULL || *ud == NULL) {
+            return true;
+        } else {
+            return false;
+        }
+    });
+
+}
+
 static const struct luaL_Reg Methods[] = {
     {"log", _log},
     {"toId", toId},
@@ -156,6 +168,7 @@ static const struct luaL_Reg Methods[] = {
     {"removeKeyFromTls", removeKeyFromTls},
     {"getCSFromTls", getCSFromTls},
     {"dispatch_after", _dispatch_after},
+    {"isNull",_isNull},
     {NULL, NULL}
 };
 
