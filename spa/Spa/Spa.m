@@ -248,6 +248,9 @@ static int panic(lua_State *L) {
                 spa.spa_logBlock(log);
             }
             printf("opening spa scripts failed: %s\n", lua_tostring(L,-1));
+        } else if(spa.spa_logBlock){
+            NSString *successLog = @"[SPA] SUCCESS: lua do string success";
+            spa.spa_logBlock(successLog);
         }
         free(appLoadString);
         return 0;
