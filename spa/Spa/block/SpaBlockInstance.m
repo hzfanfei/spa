@@ -31,7 +31,11 @@
             lua_getfield(L, -1, "f");
             
             if (!lua_isnil(L, -1) && lua_type(L, -1) == LUA_TFUNCTION) {
-                lua_call(L, 0, 0);
+                if(lua_pcall(L, 0, 0, 0) != 0){
+                NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+                NSLog(log);
+                NSCAssert(NO, log);
+                }
             }
             return 0;
         });
@@ -77,9 +81,18 @@
             NSUInteger paramNum = [paramsTypeArray count];
             
             if (returnType == nil) {
-                lua_call(L, (int)paramNum, 0);
+                if(lua_pcall(L, (int)paramNum, 0, 0) != 0){
+                NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+                NSLog(log);
+                NSCAssert(NO, log);
+                }
+
             } else {
-                lua_call(L, (int)paramNum, 1);
+                if(lua_pcall(L, (int)paramNum, 1, 0) != 0){
+                NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+                NSLog(log);
+                NSCAssert(NO, log);
+                }
                 returnBuffer = [SpaConverter toOCObject:L typeDescription:returnType.UTF8String index:-1];
             }
             
