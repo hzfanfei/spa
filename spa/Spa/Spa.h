@@ -14,6 +14,7 @@
 #define SPA_MODULE "spa"
 
 typedef void (^spa_log_block_t)(NSString *log);
+typedef void (^spa_complete_block_t)(BOOL complete,NSString *log);
 
 @interface Spa : NSObject
 
@@ -21,8 +22,10 @@ typedef void (^spa_log_block_t)(NSString *log);
 
 - (void)usePatch:(NSString *)patch;
 - (void)usePatchAppend:(NSString *)patch;
+- (void)usePatch:(NSString *)patch complete:(spa_complete_block_t)completeBlock;
 
 - (void)setLogBlock:(spa_log_block_t)block;
+- (void)setCompleteBlock:(spa_complete_block_t)complete;
 
 - (lua_State *)getLuaState;
 

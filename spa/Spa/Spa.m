@@ -22,7 +22,7 @@
 @property (nonatomic) SpaInstance* spa_instance;
 @property (nonatomic) SpaTrace* spa_trace;
 @property (nonatomic, copy) spa_log_block_t spa_logBlock;
-
+@property (nonatomic, copy) spa_complete_block_t spa_completeBlock;
 @end
 
 @implementation Spa
@@ -200,14 +200,28 @@ static const struct luaL_Reg Methods[] = {
     return _spa_logBlock;
 }
 
+- (void)setCompleteBlock:(spa_complete_block_t)block {
+    Spa* spa = [Spa sharedInstace];
+    spa.spa_completeBlock = block;
+}
+
+- (spa_complete_block_t)spaCompleteBlock {
+    return _spa_completeBlock;
+}
+
 static int panic(lua_State *L) {
     NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
     Spa* spa = [Spa sharedInstace];
-    if (spa.spa_logBlock) {
-        spa.spa_logBlock(log);
+    if (spa.spa_completeBlock) {
+        spa.spa_completeBlock(NO, log);
     }
     printf("[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1));
     return 0;
+}
+
+- (void)usePatch:(NSString *)patch complete:(spa_complete_block_t)completeBlock {
+    [Spa.sharedInstace setCompleteBlock:completeBlock];
+    [self usePatch:patch];
 }
 
 - (void)usePatch:(NSString *)patch
@@ -226,8 +240,8 @@ static int panic(lua_State *L) {
     
     if (luaL_loadbuffer(L, stdlib, stdlibSize, "loading spa stdlib") || lua_pcall(L, 0, LUA_MULTRET, 0)) {
         NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: opening spa stdlib failed: %s\n", lua_tostring(L, -1)];
-        if (spa.spa_logBlock) {
-            spa.spa_logBlock(log);
+        if (spa.spa_completeBlock) {
+            spa.spa_completeBlock(NO, log);
         }
         printf("opening spa stdlib failed: %s\n", lua_tostring(L,-1));
         return ;
@@ -244,13 +258,13 @@ static int panic(lua_State *L) {
         if (luaL_dostring(L, appLoadString) != 0) {
             NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: opening spa scripts failed (%s)\n", lua_tostring(L, -1)];
             Spa* spa = [Spa sharedInstace];
-            if (spa.spa_logBlock) {
-                spa.spa_logBlock(log);
+            if (spa.spa_completeBlock) {
+                spa.spa_completeBlock(NO, log);
             }
             printf("opening spa scripts failed: %s\n", lua_tostring(L,-1));
-        } else if(spa.spa_logBlock){
+        } else if(spa.spa_completeBlock){
             NSString *successLog = @"[SPA] SUCCESS: lua do string success";
-            spa.spa_logBlock(successLog);
+            spa.spa_completeBlock(YES, successLog);
         }
         free(appLoadString);
         return 0;
