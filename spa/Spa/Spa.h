@@ -10,6 +10,7 @@
 #import "lauxlib.h"
 #import "lobject.h"
 #import "lualib.h"
+#import "SpaClass.h"
 
 #define SPA_MODULE "spa"
 
@@ -26,6 +27,7 @@ typedef void (^spa_complete_block_t)(BOOL complete,NSString *log);
 
 - (void)setLogBlock:(spa_log_block_t)block;
 - (void)setCompleteBlock:(spa_complete_block_t)complete;
+- (void)setSwizzleBlock:(spa_complete_block_t)block;
 
 - (lua_State *)getLuaState;
 

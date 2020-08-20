@@ -23,6 +23,7 @@
 @property (nonatomic) SpaTrace* spa_trace;
 @property (nonatomic, copy) spa_log_block_t spa_logBlock;
 @property (nonatomic, copy) spa_complete_block_t spa_completeBlock;
+@property (nonatomic, copy) spa_complete_block_t spa_swizzleBlock;
 @end
 
 @implementation Spa
@@ -207,6 +208,15 @@ static const struct luaL_Reg Methods[] = {
 
 - (spa_complete_block_t)spaCompleteBlock {
     return _spa_completeBlock;
+}
+
+- (void)setSwizzleBlock:(spa_complete_block_t)block {
+    Spa* spa = [Spa sharedInstace];
+    spa.spa_swizzleBlock = block;
+}
+
+- (spa_complete_block_t)spaSwizzleBlock {
+    return _spa_swizzleBlock;;
 }
 
 static int panic(lua_State *L) {

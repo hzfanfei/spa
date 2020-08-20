@@ -19,6 +19,7 @@
 - (SpaTrace *)spaTrace;
 - (spa_log_block_t)spaLogBlock;
 - (spa_complete_block_t)spaCompleteBlock;
+- (spa_complete_block_t)spaSwizzleBlock;
 @end
 
 #endif /* Spa_Private_h */

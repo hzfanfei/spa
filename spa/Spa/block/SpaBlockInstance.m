@@ -34,6 +34,10 @@
                 if(lua_pcall(L, 0, 0, 0) != 0){
                 NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
                 NSLog(log);
+                Spa* spa = [Spa sharedInstace];
+                if (spa.spaSwizzleBlock) {
+                    spa.spaSwizzleBlock(NO, log);
+                }
                 NSCAssert(NO, log);
                 }
             }
@@ -84,6 +88,10 @@
                 if(lua_pcall(L, (int)paramNum, 0, 0) != 0){
                 NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
                 NSLog(log);
+                Spa* spa = [Spa sharedInstace];
+                if (spa.spaSwizzleBlock) {
+                    spa.spaSwizzleBlock(NO, log);
+                }
                 NSCAssert(NO, log);
                 }
 
@@ -91,6 +99,10 @@
                 if(lua_pcall(L, (int)paramNum, 1, 0) != 0){
                 NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
                 NSLog(log);
+                Spa* spa = [Spa sharedInstace];
+                if (spa.spaSwizzleBlock) {
+                    spa.spaSwizzleBlock(NO, log);
+                }
                 NSCAssert(NO, log);
                 }
                 returnBuffer = [SpaConverter toOCObject:L typeDescription:returnType.UTF8String index:-1];

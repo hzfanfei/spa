@@ -341,9 +341,13 @@ static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *in
         
         
         if(lua_pcall(L, nargs, nresults, 0) != 0){
-        NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
-        NSLog(log);
-        NSCAssert(NO, log);
+            NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+            NSLog(log);
+            Spa* spa = [Spa sharedInstace];
+            if (spa.spaSwizzleBlock) {
+                spa.spaSwizzleBlock(NO, log);
+            }
+            NSCAssert(NO, log);
         }
         return nresults;
     });
