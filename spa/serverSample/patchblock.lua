@@ -1,5 +1,10 @@
-spa_class("TestViewController")
+spa_class("ViewController")
 
-function test(self)
-    self:view():setBackgroundColor_(UIColor:yellowColor())
+function doSomeThing(self)
+local block = function(i)
+    spa.log(i)
 end
+self:doSomeBlock_(block)
+end
+
+

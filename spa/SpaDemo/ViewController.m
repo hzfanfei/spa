@@ -49,11 +49,11 @@ typedef struct SPA_POINT {
     [[Spa sharedInstace] setLogBlock:^(NSString *log) {
         printf("%s", log.UTF8String);
     }];
-//    NSString* script = @"spa.log('trace script'); spa.trace.start('www.baidu.com') \n";
-//    [[Spa sharedInstace] usePatch:script];
     [self loadTableView];
-    [self usePatch];
+//    [self usePatch:@"patchcgpoint"];
+    [self usePatch:@"patchblock"];
     [self scroll];
+    [self doSomeThing];
 }
 
 -(void)loadTableView{
@@ -66,8 +66,8 @@ typedef struct SPA_POINT {
     [self.tableview setContentOffset:CGPointMake(0, 100) animated:true];
 }
 
--(void)usePatch{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"patchcgpoint" ofType:@"lua"];
+-(void)usePatch:(NSString *)patchName{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:patchName ofType:@"lua"];
      NSData *data = [NSData dataWithContentsOfFile:filePath];
      NSString* patchString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
      [[Spa sharedInstace] usePatch:patchString];
@@ -86,9 +86,11 @@ typedef struct SPA_POINT {
 //    }
 }
 
-- (void)doSomeThing
-{
-    
+-(void)doSomeThing {
+}
+
+-(void)doSomeBlock:(void(^)(int i))block {
+block(5);
 }
 
 @end
