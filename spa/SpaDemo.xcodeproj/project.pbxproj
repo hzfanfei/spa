@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCC9AC4324EF79960015CF1E /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949821BE0B1C00EA7D16 /* libffi.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E317945921C62B9400931605 /* SpaConvertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317945821C62B9400931605 /* SpaConvertTest.m */; };
 		E317946221CE203D00931605 /* SpaOtherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317946121CE203D00931605 /* SpaOtherTest.m */; };
 		FD2F947821B0E93D00EA7D16 /* SpaClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947721B0E93D00EA7D16 /* SpaClass.m */; };
 		FD2F947B21B148F000EA7D16 /* SpaUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947A21B148F000EA7D16 /* SpaUtil.m */; };
 		FD2F947F21B2A7EB00EA7D16 /* SpaConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947E21B2A7EB00EA7D16 /* SpaConverter.m */; };
 		FD2F948321B6620900EA7D16 /* SpaInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F948221B6620900EA7D16 /* SpaInstance.m */; };
-		FD2F949921BE0B1C00EA7D16 /* libffi_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949721BE0B1C00EA7D16 /* libffi_sim.a */; };
-		FD2F949A21BE0B1C00EA7D16 /* libffi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949821BE0B1C00EA7D16 /* libffi.a */; };
+		FD2F949921BE0B1C00EA7D16 /* libffi_sim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD2F949721BE0B1C00EA7D16 /* libffi_sim.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FD2F949E21BE150500EA7D16 /* SpaBlockDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F949D21BE150500EA7D16 /* SpaBlockDescription.m */; };
 		FD2F94B421BE564700EA7D16 /* SpaBlockInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94B321BE564700EA7D16 /* SpaBlockInstance.m */; };
 		FD2F94B721BE9EA200EA7D16 /* SpaDynamicBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F94B621BE9EA200EA7D16 /* SpaDynamicBlock.m */; };
@@ -27,7 +27,7 @@
 		FD66B31D21AF8E770038B2C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD66B31B21AF8E770038B2C7 /* LaunchScreen.storyboard */; };
 		FD66B32021AF8E770038B2C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD66B31F21AF8E770038B2C7 /* main.m */; };
 		FD66B32F21AF8E950038B2C7 /* Spa.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = FD66B32C21AF8E950038B2C7 /* Spa.h */; };
-		FD66B33421AF8EAA0038B2C7 /* libSpa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD66B32A21AF8E950038B2C7 /* libSpa.a */; };
+		FD66B33421AF8EAA0038B2C7 /* libSpa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD66B32A21AF8E950038B2C7 /* libSpa.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		FD66B33621AF8F490038B2C7 /* patch.lua in Resources */ = {isa = PBXBuildFile; fileRef = FD66B33521AF8F490038B2C7 /* patch.lua */; };
 		FD66B37121AF99EB0038B2C7 /* lauxlib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B33C21AF99EB0038B2C7 /* lauxlib.c */; };
 		FD66B37221AF99EB0038B2C7 /* liolib.c in Sources */ = {isa = PBXBuildFile; fileRef = FD66B34221AF99EB0038B2C7 /* liolib.c */; };
@@ -222,8 +222,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCC9AC4324EF79960015CF1E /* libffi.a in Frameworks */,
 				FD2F949921BE0B1C00EA7D16 /* libffi_sim.a in Frameworks */,
-				FD2F949A21BE0B1C00EA7D16 /* libffi.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +448,7 @@
 				FD66B30A21AF8E760038B2C7 /* Frameworks */,
 				FD66B30B21AF8E760038B2C7 /* Resources */,
 				FD66B33921AF926D0038B2C7 /* ShellScript */,
+				CCC9AC4224EF790D0015CF1E /* Githook Script */,
 			);
 			buildRules = (
 			);
@@ -556,6 +557,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		CCC9AC4224EF790D0015CF1E /* Githook Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Githook Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp '../scripts/githook/commit-msg' '../.git/hooks/commit-msg'\nchmod 777 ../.git/hooks/commit-msg\n\n";
+		};
 		FD66B33921AF926D0038B2C7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
