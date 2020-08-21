@@ -173,8 +173,9 @@ static const struct luaL_Reg MetaMethods[] = {
         lua_rawget(L, -2);
         lua_remove(L, -2); // remove userdataTable
         
+        SpaInstanceUserdata* instanceInTable = lua_touserdata(L, -1);
         // if create already, not create any more
-        if (lua_isnil(L, -1)) {
+        if (!instanceInTable || !instanceInTable->instance) {
             lua_pop(L, 1); // pop nil stack
             size_t nbytes = sizeof(SpaInstanceUserdata);
             SpaInstanceUserdata *instance = (SpaInstanceUserdata *)lua_newuserdata(L, nbytes);
