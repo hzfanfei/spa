@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6EE2E19B24EFA4E40054E78F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE2E19A24EFA4E40054E78F /* TestViewController.m */; };
+		6EE2E19E24EFC6A10054E78F /* patchcgpoint.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EE2E19C24EFC6A10054E78F /* patchcgpoint.lua */; };
+		6EE2E19F24EFC6A10054E78F /* patchblock.lua in Resources */ = {isa = PBXBuildFile; fileRef = 6EE2E19D24EFC6A10054E78F /* patchblock.lua */; };
 		E317945921C62B9400931605 /* SpaConvertTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317945821C62B9400931605 /* SpaConvertTest.m */; };
 		E317946221CE203D00931605 /* SpaOtherTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E317946121CE203D00931605 /* SpaOtherTest.m */; };
 		FD2F947821B0E93D00EA7D16 /* SpaClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2F947721B0E93D00EA7D16 /* SpaClass.m */; };
@@ -97,6 +99,8 @@
 /* Begin PBXFileReference section */
 		6EE2E19924EFA4E40054E78F /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		6EE2E19A24EFA4E40054E78F /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		6EE2E19C24EFC6A10054E78F /* patchcgpoint.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = patchcgpoint.lua; path = serverSample/patchcgpoint.lua; sourceTree = "<group>"; };
+		6EE2E19D24EFC6A10054E78F /* patchblock.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = patchblock.lua; path = serverSample/patchblock.lua; sourceTree = "<group>"; };
 		E317945821C62B9400931605 /* SpaConvertTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaConvertTest.m; sourceTree = "<group>"; };
 		E317946121CE203D00931605 /* SpaOtherTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaOtherTest.m; sourceTree = "<group>"; };
 		FD2F947621B0E93D00EA7D16 /* SpaClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpaClass.h; sourceTree = "<group>"; };
@@ -291,6 +295,8 @@
 			isa = PBXGroup;
 			children = (
 				FD66B33521AF8F490038B2C7 /* patch.lua */,
+				6EE2E19D24EFC6A10054E78F /* patchblock.lua */,
+				6EE2E19C24EFC6A10054E78F /* patchcgpoint.lua */,
 				FD66B30F21AF8E760038B2C7 /* SpaDemo */,
 				FD66B32B21AF8E950038B2C7 /* Spa */,
 				FDB55A0221C35C330061B765 /* SpaDemoTests */,
@@ -544,6 +550,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EE2E19E24EFC6A10054E78F /* patchcgpoint.lua in Resources */,
+				6EE2E19F24EFC6A10054E78F /* patchblock.lua in Resources */,
 				FD66B31D21AF8E770038B2C7 /* LaunchScreen.storyboard in Resources */,
 				FD66B33621AF8F490038B2C7 /* patch.lua in Resources */,
 				FD66B31A21AF8E770038B2C7 /* Assets.xcassets in Resources */,

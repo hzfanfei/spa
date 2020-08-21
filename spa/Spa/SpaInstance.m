@@ -198,12 +198,7 @@ static const struct luaL_Reg MetaMethods[] = {
             // clean env
             lua_newtable(L);
             lua_setfenv(L, -2);
-        } else {
-            if ([object isKindOfClass:NSClassFromString(@"TestViewController").class]) {
-                spa_stackDump(L);
-                NSLog(@"[SPASELF] not nil ? %@",object);
-            }
-        }
+        } 
         return 1;
     });
 }

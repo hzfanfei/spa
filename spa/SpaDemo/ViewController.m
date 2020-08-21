@@ -38,6 +38,8 @@ typedef struct SPA_POINT {
 
 @interface ViewController ()
 
+@property (nonatomic,strong) UITableView *tableview;
+
 @end
 
 @implementation ViewController
@@ -49,11 +51,23 @@ typedef struct SPA_POINT {
     }];
 //    NSString* script = @"spa.log('trace script'); spa.trace.start('www.baidu.com') \n";
 //    [[Spa sharedInstace] usePatch:script];
+    [self loadTableView];
     [self usePatch];
+    [self scroll];
+}
+
+-(void)loadTableView{
+    self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 100, 900) style:UITableViewStyleGrouped];
+    self.tableview.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.tableview];
+}
+
+-(void)scroll{
+    [self.tableview setContentOffset:CGPointMake(0, 100) animated:true];
 }
 
 -(void)usePatch{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"patch" ofType:@"lua"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"patchcgpoint" ofType:@"lua"];
      NSData *data = [NSData dataWithContentsOfFile:filePath];
      NSString* patchString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
      [[Spa sharedInstace] usePatch:patchString];
