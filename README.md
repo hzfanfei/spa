@@ -266,4 +266,33 @@ lua
 class_deep('ViewController', 'doSomeThing', 'ViewController', 'doSomeThingInternal', function ()  end) -- remove doSomeThingInternal impl in doSomeThing only
 ```
 
+### situation 10
+
+```objective-c
+@implementation ViewController
+
+- (void)doSomeThing
+{
+	if(self.view == nil){
+	  ...
+	}
+}
+
+
+```
+
+lua
+
+```lua
+spa_class("ViewController")
+
+function doSomeThing()
+    if(spa.isNull(self:view()))
+    then
+    end
+end
+
+```
+> use spa.isNull to determinate whether instance is  nil or not.   https://github.com/hzfanfei/spa/issues/1   
+
 
