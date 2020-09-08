@@ -85,7 +85,7 @@ typedef void (^spa_hoder_free_block_t)(void);
         id __autoreleasing object = [[klass alloc] init];
         for (int i = 1; i <= item_count; i++) {
             lua_pushinteger(L, i);
-            lua_gettable(L, -2);
+            lua_gettable(L, index);
             [object setValue:@(lua_tonumber(L, -1)) forKey:[NSString stringWithFormat:@"x%d", i-1]];
             lua_pop(L, 1);
         }

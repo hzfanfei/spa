@@ -299,7 +299,8 @@ static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *in
         int nresults = [signature methodReturnLength] ? 1 : 0;
         // get from table
         luaL_getmetatable(L, SPA_CLASS_LIST_TABLE);
-        lua_getfield(L, -1, object_getClassName(self));
+        //in case self KVO ,object_getClassName(self) get wrong class
+        lua_getfield(L, -1, [NSStringFromClass([self class]) UTF8String]);
         lua_getfenv(L, -1);
 
         if ([self class] == self) {
@@ -338,7 +339,16 @@ static int callLuaFunction(lua_State *L, id self, SEL selector, NSInvocation *in
             }
         }
         
-        lua_call(L, nargs, nresults);
+        
+        if(lua_pcall(L, nargs, nresults, 0) != 0){
+            NSString* log = [NSString stringWithFormat:@"[SPA] PANIC: unprotected error in call to Lua API (%s)\n", lua_tostring(L, -1)];
+            NSLog(log);
+            Spa* spa = [Spa sharedInstace];
+            if (spa.spaSwizzleBlock) {
+                spa.spaSwizzleBlock(NO, log);
+            }
+            NSCAssert(NO, log);
+        }
         return nresults;
     });
 }

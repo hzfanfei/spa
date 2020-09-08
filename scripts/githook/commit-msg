@@ -1,0 +1,52 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+import re
+import commands
+
+commit_msg_path = str(sys.argv[1])
+file_object = open(commit_msg_path,'r+w')
+try: 
+    file_context = file_object.readline()
+    ret = re.search(r"^((feat|fix|docs|style|refactor|perf|test|chore|revert|build):|Revert|Merge)", file_context, re.IGNORECASE)
+    if ret == None:
+        print("commit failed，格式要求 <Type>: msg, 例如 feat: some message")
+        print("- Type \n \
+  - feat - 新功能 feature \n \
+  - fix - 修复 bug, 要注明bug号 \n \
+  - docs - 文档注释 \n \
+  - style - 代码格式(不影响代码运行的变动) \n \
+  - refactor - 重构、优化(既不增加新功能，也不是修复bug) \n \
+  - perf - 性能优化 \n \
+  - test - 增加测试 \n \
+  - chore - 构建过程或辅助工具的变动 \n \
+  - revert - 回退")
+        file_object.close()
+        sys.exit(1)
+    else:
+        # add scopes
+        scopes = []
+        _, git_result = commands.getstatusoutput('git diff head --stat')
+        git_lines = git_result.split("\n")
+        for line in git_lines:
+            line = line.strip()
+            if re.search(r"^ghmail/", line):
+                scope = "ghmail"
+                if scope not in scopes:
+                    scopes.append(scope)
+            if re.search(r"^GHPods/", line):
+                paths = line.split("/")
+                if len(paths) >= 2:
+                    scope = line.split("/")[1]
+                    if scope not in scopes and re.search(r"^GH", scope):
+                        scopes.append(scope)
+        if len(scopes) > 0:
+            type = file_context.split(":")[0]
+            file_context = file_context.replace(type+":", type+" ("+",".join(scopes)+"):")
+            file_object.seek(0)
+            file_object.truncate()
+            file_object.write(file_context)
+        file_object.close()
+finally:
+    file_object.close()
