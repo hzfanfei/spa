@@ -37,10 +37,10 @@ static NSRecursiveLock *lock = nil;
 
 int spa_performLocked(spa_lua_perfrom_locked_block_t block) {
     int result = 0;
-    
-    if (lock == nil) {
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
         lock = [[NSRecursiveLock alloc] init];
-    }
+    });
     [lock lock];
     result = block();
     [lock unlock];
