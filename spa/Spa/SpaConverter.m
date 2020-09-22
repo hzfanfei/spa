@@ -278,7 +278,7 @@ typedef void (^spa_hoder_free_block_t)(void);
                 // set lua function to env
                 lua_newtable(L);
                 lua_pushstring(L, "f");
-                lua_pushvalue(L, 2);
+                lua_pushvalue(L, index);
                 lua_settable(L, -3);
                 lua_setfenv(L, -2);
                 
