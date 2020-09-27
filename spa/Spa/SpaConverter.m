@@ -14,6 +14,7 @@
 #import "lauxlib.h"
 #import <objc/runtime.h>
 #import <malloc/malloc.h>
+#import "Spa+Private.h"
 
 #define SPA_LUA_NUMBER_CONVERT(T) else if (type == @encode(T)[0]) { lua_pushnumber(L, *(T *)buffer); }
 
@@ -108,17 +109,35 @@ typedef void (^spa_hoder_free_block_t)(void);
     if (klass == nil) {
         klass = NSClassFromString(className);
     } else {
-        NSUInteger size;
-        NSUInteger alingment;
-        NSGetSizeAndAlignment(&type, &size, &alingment);
-        success = class_addIvar(klass, "key", size, log2(alingment), &type);
-        
-        if (!success) {
-            luaL_error(L, "[SPA] create %c number class failed !", type);
-            return NULL;
-        }
-        
-        objc_registerClassPair(klass);
+        @try {
+            NSUInteger size;
+            NSUInteger alingment;
+            
+            NSGetSizeAndAlignment(&type, &size, &alingment);
+            success = class_addIvar(klass, "key", size, log2(alingment), &type);
+            
+            if (!success) {
+                NSString *errorString = [NSString stringWithFormat:@" create %c number class failed !",type];
+                luaL_error(L, errorString.UTF8String);
+                if (Spa.sharedInstace.spaSwizzleBlock) {
+                    Spa.sharedInstace.spaSwizzleBlock(NO, errorString);;
+                }
+                return NULL;
+            }
+            
+            objc_registerClassPair(klass);
+         } @catch (NSException *e) {
+           /**
+            If we failed, we probably have C++ and ObjC cannot get it's size and alignment. We are skipping.
+            If we would like to support it, we would need to derive size and alignment of type from the string.
+            C++ does not have reflection so we can't really do that unless we create the mapping ourselves.
+            */
+             NSString *errorString = [NSString stringWithFormat:@" create %c number class failed! Reason is %@",type,e.reason];
+             if (Spa.sharedInstace.spaSwizzleBlock) {
+                 Spa.sharedInstace.spaSwizzleBlock(NO, errorString);;
+             }
+             return NULL;
+         }
     }
     id __autoreleasing object = [[klass alloc] init];
     [object setValue:value forKey:@"key"];
