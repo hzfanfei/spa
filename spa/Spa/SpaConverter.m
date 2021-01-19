@@ -133,6 +133,7 @@ typedef void (^spa_hoder_free_block_t)(void);
             C++ does not have reflection so we can't really do that unless we create the mapping ourselves.
             */
              NSString *errorString = [NSString stringWithFormat:@" create %c number class failed! Reason is %@",type,e.reason];
+             luaL_error(L, errorString.UTF8String);
              if (Spa.sharedInstace.spaSwizzleBlock) {
                  Spa.sharedInstace.spaSwizzleBlock(NO, errorString);;
              }
