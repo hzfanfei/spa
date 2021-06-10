@@ -172,9 +172,10 @@ int spa_callBlock(lua_State *L)
     NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
     [invocation setTarget:block];
     
-    for (NSUInteger i = 1; i < [signature numberOfArguments]; i++) {
+    for (unsigned long i = [signature numberOfArguments] - 1; i >= 1; i--) {
         const char *typeDescription = [signature getArgumentTypeAtIndex:i];
         void *pReturnValue = [SpaConverter toOCObject:L typeDescription:typeDescription index:-1];
+        lua_pop(L, 1);
         [invocation setArgument:pReturnValue atIndex:i];
     }
     
