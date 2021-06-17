@@ -12,5 +12,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/hzfanfei/spa.git", :tag => "#{s.version}" }
   s.source_files = "spa", "spa/Spa/**/*.{h,m,c}"
   s.ios.vendored_libraries = "spa/Spa/libffi/libffi_sim.a", "spa/Spa/libffi/libffi.a"
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
 
